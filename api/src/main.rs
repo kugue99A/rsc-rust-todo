@@ -131,7 +131,6 @@ mod test {
     }
 
     #[tokio::test]
-    // page: 142
     async fn should_delete_todo() {
       let repository = TodoRepositoryForMemory::new();
       repository.create(CreateTodo::new("should_delete_todo".to_string()));

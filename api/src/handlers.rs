@@ -29,7 +29,7 @@ pub async fn all_todo<T: TodoRepository>(
 	Extension(repository): Extension<Arc<T>>,
 ) -> impl IntoResponse {
 	let todo = repository.all();
-	(StatusCode::OK, Json(todo));
+	(StatusCode::OK, Json(todo))
 }
 
 pub async fn update_todo<T: TodoRepository>(
@@ -45,5 +45,5 @@ pub async fn delete_todo<T: TodoRepository>(
 	Path(id): Path<i32>,
 	Extension(repository): Extension<Arc<T>>,
 ) -> StatusCode {
-	repository.delete(id).map(|_| StatusCode::NOT_FOUND).unwrap_or(StatusCode::NOT_FOUND)
+	repository.delete(id).map(|_| StatusCode::NO_CONTENT).unwrap_or(StatusCode::NOT_FOUND)
 }
