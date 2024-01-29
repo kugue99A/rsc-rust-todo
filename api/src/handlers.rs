@@ -1,4 +1,3 @@
-use anyhow::Ok;
 use axum::{
 	extract::{Extension, Path},
 	http::StatusCode,
