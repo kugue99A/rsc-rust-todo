@@ -7,7 +7,7 @@ type CardProps = {
 }
 
 const Card:FC<CardProps> = (props) => {
-	const {children} = props
+  const {children} = props
 	return (<div className={s.root}>{children}</div>)
 }
 
