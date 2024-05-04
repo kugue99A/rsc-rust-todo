@@ -8,7 +8,6 @@ use::thiserror::Error;
 use:: anyhow::Context;
 use validator::Validate;
 use axum::async_trait;
-use sqlx::PgPool;
 
 #[derive(Debug, Error)]
 enum RepositoryError {
@@ -66,40 +65,6 @@ impl Todo {
 }
 
 type TodoDatas = HashMap<i32, Todo>;
-
-#[derive(Debug, Clone)]
-pub struct  TodoRepositoryForDb {
-    pool: PgPool,
-}
-
-impl TodoRepositoryForDb {
-    pub fn new(pool: PgPool) -> Self {
-        TodoRepositoryForDb { pool }
-    }
-}
-
-#[async_trait]
-impl TodoRepository for TodoRepositoryForDb {
-    async fn create (&self, _payload: CreateTodo) -> anyhow::Result<Todo> {
-        todo!()
-    }
-
-    async fn find(&self, _id: i32) -> anyhow::Result<Todo> {
-        todo!()
-    }
-
-    async fn all(&self) -> anyhow::Result<Vec<Todo>> {
-        todo!()
-    }
-
-    async fn update(&self, id: i32, _payload: UpdateTodo) -> anyhow::Result<Todo> {
-        todo!()
-    }
-
-    async fn delete(&self, _id: i32) -> anyhow::Result<()> {
-        todo!()
-    }
-}
 
 #[derive(Debug, Clone)]
 pub struct TodoRepositoryForMemory {
@@ -181,18 +146,15 @@ mod test {
 
         // create
         let repository = TodoRepositoryForMemory::new();
-        let todo = repository
-            .create(CreateTodo { text })
-            .await
-            .expect("failed create todo");
+        let todo = repository.create(CreateTodo { text });
         assert_eq!(expected, todo);
 
         // find
-        let todo = repository.find(todo.id).await.unwrap();
+        let todo = repository.find(todo.id).unwrap();
         assert_eq!(expected, todo);
 
         // all
-        let todo = repository.all().await.expect("failed get all todo");
+        let todo = repository.all();
         assert_eq!(vec![expected], todo);
 
         // update
@@ -202,7 +164,6 @@ mod test {
                 1,
                 UpdateTodo { text: Some(text.clone()), completed: Some(true) }
             )
-            .await
             .expect("failed update todo.");
         assert_eq!(
             Todo {
@@ -214,7 +175,7 @@ mod test {
         );
 
         // delete
-        let res = repository.delete(id).await;
+        let res = repository.delete(id);
         assert!(res.is_ok())
     }
 }
