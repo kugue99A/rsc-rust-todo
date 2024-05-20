@@ -1,6 +1,7 @@
-import { Card, TreeView } from '@/components/common'
+import { Card, Flex, TreeView } from '@/components/common'
 import Link from 'next/link'
 import { TreeViewContent } from './_components'
+import { css } from '@styled-system/css'
 
 export default function Home() {
     const treeContent = {
@@ -35,14 +36,16 @@ export default function Home() {
     }
 
     return (
-        <div>
-            <h1>This is Home!!!</h1>
-            <Link href="/calendar">Go to Calendar</Link>
-            <Link href="/tasks">Go to Tasks</Link>
-            <Card>
-                <h2>test test</h2>
-                <TreeView markup={TreeViewContent} item={treeContent} />
-            </Card>
-        </div>
+        <Flex pa="2">
+            <div className={css({ color: 'red.200' })}>
+                <h1>This is Home!!!</h1>
+                <Link href="/calendar">Go to Calendar</Link>
+                <Link href="/tasks">Go to Tasks</Link>
+                <Card>
+                    <h2>test test</h2>
+                    <TreeView markup={TreeViewContent} item={treeContent} />
+                </Card>
+            </div>
+        </Flex>
     )
 }

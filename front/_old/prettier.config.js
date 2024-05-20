@@ -8,4 +8,4 @@ const config = {
   useTabs: false,
 }
 
-module.exports = config
+export default config
