@@ -31,6 +31,7 @@ async fn main() {
     let repository = TodoRepositoryForDb::new(pool.clone());
 
     let app = create_app(repository);
+
     axum::Server::bind(&addr).serve(app.into_make_service()).await.unwrap();
 }
 
