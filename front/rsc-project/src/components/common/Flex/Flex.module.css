@@ -1,0 +1,23 @@
+.width-fit {
+  width: fit-content;
+}
+
+.width-auto {
+  width: auto;
+}
+
+.width-fill {
+  width: 100%;
+}
+
+.height-fit {
+  height: fit-content;
+}
+
+.height-auto {
+  height: auto;
+}
+
+.height-fill {
+  height: 100%;
+}

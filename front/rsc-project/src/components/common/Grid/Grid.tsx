@@ -27,9 +27,9 @@ type GridProps = {
   Gap
 
 export const Grid = (props: GridProps): JSX.Element => {
-  const { children, rows, ...spacing } = props
+  const { children, rows, columns, ...spacing } = props
   return (
-    <GridComponent rows={rows} {...spacing}>
+    <GridComponent rows={rows} columns={columns} {...spacing}>
       {children}
     </GridComponent>
   )

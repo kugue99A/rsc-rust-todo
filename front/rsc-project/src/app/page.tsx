@@ -1,11 +1,13 @@
-import Image from 'next/image'
-import styles from './page.module.css'
-import { Flex } from '@/components/common'
+import { Flex, Heading } from '@/components/common'
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <Flex justify="center">aaaa</Flex>
+    <main>
+      <Flex direction="column" justify="center" p="9">
+        <Heading as="h1">aaaa</Heading>
+        <Flex justify="center">aaaa</Flex>
+        <Flex justify="center">aaaa</Flex>
+      </Flex>
     </main>
   )
 }

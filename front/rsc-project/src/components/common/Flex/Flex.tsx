@@ -1,5 +1,8 @@
 import { Flex as FlexComponent } from '@radix-ui/themes'
+import clsx from 'clsx'
 import { ReactNode } from 'react'
+
+import s from './Flex.module.css'
 
 type Spacing = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
 
@@ -39,15 +42,15 @@ export const Flex = (props: FlexProps): JSX.Element => {
     height = 'auto',
     ...spacing
   } = props
+  const rootClassName = clsx(s[width], s[height])
 
   return (
     <FlexComponent
       direction={direction}
       justify={justify}
       align={align}
-      width={width}
-      height={height}
       {...spacing}
+      className={rootClassName}
     >
       {children}
     </FlexComponent>
