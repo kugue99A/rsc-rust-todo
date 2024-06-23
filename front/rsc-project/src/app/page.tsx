@@ -13,7 +13,7 @@ export default function Home() {
         </Flex>
         <Flex justify="center">
           <Link href={`/works/${9}`}>
-            <Text size="medium">to works</Text>
+            <Text size="medium">to work 9</Text>
           </Link>
         </Flex>
       </Flex>

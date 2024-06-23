@@ -7,7 +7,7 @@ import { Theme } from '@radix-ui/themes'
 const font = Noto_Sans_JP({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: '99a',
+  title: 'Being and Code',
   description: "99a's personal website",
 }
 
@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="ja">
+    <html lang="en">
       <body className={font.className}>
         <Theme>{children}</Theme>
       </body>
