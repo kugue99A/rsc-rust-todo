@@ -1,4 +1,5 @@
 import { Text as TextComponent } from '@radix-ui/themes'
+
 import { ReactNode } from 'react'
 
 import s from './Text.module.css'

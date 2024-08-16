@@ -1,6 +1,6 @@
 import { Flex, Heading, Link, Text } from '@/components/common'
 
-export default function Home() {
+export default function Home(): JSX.Element {
   return (
     <main>
       <Flex direction="column" justify="center" p="9">

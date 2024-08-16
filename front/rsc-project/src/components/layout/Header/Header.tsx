@@ -7,5 +7,5 @@ type HeaderProps = {
 
 export const Header = (props: HeaderProps): JSX.Element => {
   const { children } = props
-  return <header>{children}</header>
+  return <header className={s.root}>{children}</header>
 }
