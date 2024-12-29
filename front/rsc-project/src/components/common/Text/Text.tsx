@@ -1,15 +1,14 @@
-import { Text as TextComponent } from '@radix-ui/themes'
+import { Text as TextComponent } from "@radix-ui/themes";
+import type { ReactNode } from "react";
 
-import { ReactNode } from 'react'
-
-import s from './Text.module.css'
+import s from "./Text.module.css";
 
 type TextProps = {
-  children: ReactNode
-  size: 'small' | 'medium' | 'large'
-}
+	children: ReactNode;
+	size: "small" | "medium" | "large";
+};
 
 export const Text = (props: TextProps): JSX.Element => {
-  const { children, size } = props
-  return <TextComponent className={s[size]}>{children}</TextComponent>
-}
+	const { children, size } = props;
+	return <TextComponent className={s[size]}>{children}</TextComponent>;
+};

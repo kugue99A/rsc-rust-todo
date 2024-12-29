@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 export default function Calendar() {
-    return (
+   return (
         <>
             <div>
                 <h1>This is Calendar</h1>
